@@ -2166,18 +2166,17 @@ function _onWindowStateChange(isMaximized) {
     }
 }
 
+// 교체
 const FS_SLOTS = [
-    { d: -3, op: 0.18, bl: 4.0, sy: 0.82, sc: 0.90, dy: 0 },
-    { d: -2, op: 0.38, bl: 2.0, sy: 0.88, sc: 0.94, dy: 0 },
-    { d: -1, op: 0.62, bl: 0.6, sy: 0.95, sc: 0.98, dy: 0 },
-    { d: 0,  op: 1.00, bl: 0.0, sy: 1.00, sc: 1.00, dy: 0 },
-    { d: 1,  op: 0.58, bl: 0.6, sy: 0.95, sc: 0.98, dy: 0 },
-    { d: 2,  op: 0.34, bl: 2.0, sy: 0.88, sc: 0.94, dy: 0 },
-    { d: 3,  op: 0.15, bl: 4.0, sy: 0.82, sc: 0.90, dy: 0 },
+    { d: -2, op: 0.28, bl: 3.0, sy: 1.0, sc: 1.0, dy: 0 },
+    { d: -1, op: 0.55, bl: 0.8, sy: 1.0, sc: 1.0, dy: 0 },
+    { d: 0,  op: 1.00, bl: 0.0, sy: 1.0, sc: 1.0, dy: 0 },
+    { d: 1,  op: 0.50, bl: 0.8, sy: 1.0, sc: 1.0, dy: 0 },
+    { d: 2,  op: 0.24, bl: 3.0, sy: 1.0, sc: 1.0, dy: 0 },
 ];
 const FS_ROW_H  = 56;
-const FS_BEFORE = 3;
-const FS_AFTER  = 3;
+const FS_BEFORE = 2;
+const FS_AFTER  = 2;
 const FS_SLIDE  = 22;
 const FS_TRANS  = [
     'opacity  0.40s cubic-bezier(0.4,0,0.2,1)',
@@ -2225,6 +2224,7 @@ function _restoreNormalMode() {
         .forEach(p => panel.style[p] = '');
 }
 
+// 교체
 function _fsApplySlot(el, slot, visible) {
     if (!visible) {
         el.style.opacity = '0';
@@ -2235,7 +2235,7 @@ function _fsApplySlot(el, slot, visible) {
     el.style.filter     = slot.bl > 0 ? `blur(${slot.bl}px)` : 'none';
     el.style.color      = _fsColor(slot.d);
     el.style.fontWeight = _fsFW(slot.d);
-    el.style.transform  = `scaleX(${slot.sc}) scaleY(${slot.sy}) translateY(${slot.dy}px)`;
+    el.style.transform  = `translateY(${slot.dy}px)`;
 }
 
 function _buildFsLyricsDOM() {
@@ -2277,7 +2277,7 @@ function _buildFsLyricsDOM() {
         el.style.transition = 'none';
         el.style.opacity   = '0';
         el.style.filter    = 'blur(8px)';
-        el.style.transform = `scaleX(0.88) scaleY(0.82) translateY(${FS_SLIDE}px)`;
+        el.style.transform    = `translateY(${FS_SLIDE}px)`;
         el.style.color     = 'rgba(255,255,255,0.22)';
         el.style.fontWeight = '500';
         el.style.willChange = 'transform, opacity, filter';
