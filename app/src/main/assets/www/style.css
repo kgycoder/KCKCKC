@@ -2877,7 +2877,7 @@ body.overlay-mode #ov-bar-wrap {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 60px 20px 130px 52px !important;
+    padding: 48px 20px 110px 44px !important;
     gap: 0 !important;
     min-height: unset !important;
     z-index: 10;
@@ -2887,14 +2887,15 @@ body.overlay-mode #ov-bar-wrap {
         flex-direction: column !important;
         align-items: center !important;
         justify-content: center !important;
-        padding: 60px 20px 130px 52px !important;
+        padding: 48px 20px 110px 44px !important;
         gap: 0 !important;
     }
 
 /* 앨범 아트 크기 */
+/* 교체 */
 #np.fullscreen .np-art-shell {
-    width: min(420px, 38vw, 54vh) !important;
-    box-shadow: 0 48px 140px rgba(0,0,0,0.85) !important;
+    width: min(300px, 28vw, 38vh) !important;
+    box-shadow: 0 32px 100px rgba(0,0,0,0.85) !important;
 }
 
 /* 일반모드 가사 패널 숨김 */
@@ -2907,10 +2908,8 @@ body.overlay-mode #ov-bar-wrap {
     position: absolute !important;
     background: none !important;
     box-shadow: none !important;
-    padding: 14px 0 0 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
+    padding: 10px 0 0 0 !important;
+    gap: 6px !important;
     z-index: 15;
 }
 
@@ -2920,15 +2919,15 @@ body.overlay-mode #ov-bar-wrap {
     gap: 8px;
 }
 
+/* 교체 */
 #np.fullscreen .np-title {
-    font-size: clamp(15px,1.45vw,20px);
+    font-size: clamp(12px,1.15vw,16px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-
 #np.fullscreen .np-ch {
-    font-size: clamp(11px,1.05vw,14px);
+    font-size: clamp(10px,0.9vw,12px);
 }
 
 #np.fullscreen .np-act {
@@ -3004,7 +3003,11 @@ body.overlay-mode #ov-bar-wrap {
     display: flex;
     align-items: center;
     /* 긴 가사: font-size를 줄여서 한 줄에 맞춤 — height/layout 변화 없음 */
-    font-size: clamp(17px, 2.1vw, 28px);
+    font-size: clamp(15px, 1.8vw, 24px);
+    /* transition에서 font-size 제거 — opacity/filter만 */
+    transition: opacity 0.38s cubic-bezier(0.4,0,0.2,1),
+                filter  0.38s cubic-bezier(0.4,0,0.2,1),
+                transform 0.44s cubic-bezier(0.34,1.15,0.64,1);
     font-weight: 600;
     line-height: 1.35;
     word-break: keep-all;
